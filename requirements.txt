@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+tensorflow-cpu
+numpy
+pydantic
