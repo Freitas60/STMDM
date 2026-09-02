@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Híbrido | rPPG + LSTM</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    
+    <!-- MediaPipe Vision -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision"></script>
+</head>
+<body>
+    <div class="hud-container">
+        <h1>Análise Biométrica</h1>
+        
+        <div class="status-panel">
+            <p id="status-text">A inicializar sistema...</p>
+            <p class="highlight" id="prediction-text">AGUARDANDO CALIBRAÇÃO</p>
+        </div>
+
+        <div class="controls">
+            <button id="btn-calibrate" disabled>Iniciar Calibração (T1)</button>
+        </div>
+        
+        <div class="metrics">
+            <p>BPM: <span id="val-bpm">--</span></p>
+            <p>EAR: <span id="val-ear">--</span></p>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="output-canvas"></canvas>
+    </div>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
