@@ -31,11 +31,12 @@ async function initSystem() {
 
     // 2. Inicializar MediaPipe Face Landmarker
     try {
-        const vision = await FilesetResolver.forVisionTasks(
+        // Usar o objeto global 'vision' injetado pelo bundle
+        const filesetResolver = await vision.FilesetResolver.forVisionTasks(
             "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
         );
         
-        faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
+        faceLandmarker = await vision.FaceLandmarker.createFromOptions(filesetResolver, {
             baseOptions: {
                 modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
                 delegate: "GPU"
@@ -44,13 +45,12 @@ async function initSystem() {
             numFaces: 1
         });
 
-        statusText.innerText = "Sistema pronto. A aceder à webcam...";
+        document.getElementById('system-status').innerText = "Sistema pronto. A aceder à webcam...";
         startWebcam();
     } catch (err) {
         console.error("Erro ao inicializar o MediaPipe:", err);
-        statusText.innerText = "Erro ao inicializar o MediaPipe.";
+        document.getElementById('system-status').innerText = "Erro ao inicializar o MediaPipe.";
     }
-}
 
 async function startWebcam() {
     try {
