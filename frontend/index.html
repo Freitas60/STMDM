@@ -3,39 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motor Híbrido | rPPG + LSTM</title>
+    <title>STMDM - Sistema de Deteção de Stress</title>
     <link rel="stylesheet" href="style.css">
     
-    <!-- TensorFlow.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    
-    <!-- MediaPipe Vision -->
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision"></script>
+    <!-- TensorFlow.js Core -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
+    <!-- MediaPipe Tasks Vision -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/vision_bundle.js"></script>
 </head>
 <body>
-    <div class="hud-container">
-        <h1>Análise Biométrica</h1>
+    <div class="container">
+        <h1>Sistema Híbrido de Deteção de Stress (Edge + Cloud)</h1>
         
+        <div class="video-container">
+            <!-- Elemento de vídeo para a webcam -->
+            <video id="webcam" autoplay playsinline width="640" height="480"></video>
+            <!-- Canvas auxiliar para processamento de imagem e crops -->
+            <canvas id="output_canvas" width="640" height="480" style="display:none;"></canvas>
+        </div>
+
         <div class="status-panel">
-            <p id="status-text">A inicializar sistema...</p>
-            <p class="highlight" id="prediction-text">AGUARDANDO CALIBRAÇÃO</p>
-        </div>
-
-        <div class="controls">
-            <button id="btn-calibrate" disabled>Iniciar Calibração (T1)</button>
-        </div>
-        
-        <div class="metrics">
-            <p>BPM: <span id="val-bpm">--</span></p>
-            <p>EAR: <span id="val-ear">--</span></p>
+            <h2>Estado do Sistema</h2>
+            <p id="system-status">A carregar modelos e dependências...</p>
+            <p id="stress-status" class="stress-badge">Nível de Stress: A aguardar dados...</p>
         </div>
     </div>
 
-    <div class="video-container">
-        <video id="webcam" autoplay playsinline></video>
-        <canvas id="output-canvas"></canvas>
-    </div>
-
-    <script src="app.js" type="module"></script>
+    <!-- Script principal da aplicação -->
+    <script src="app.js"></script>
 </body>
 </html>
