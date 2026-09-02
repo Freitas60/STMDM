@@ -1,0 +1,87 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.hud-container {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
+.status-panel p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.highlight {
+    color: #00ffcc;
+    font-weight: bold;
+    font-size: 1.5rem !important;
+}
+
+button {
+    background: #00ffcc;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: 0.3s;
+}
+
+button:disabled {
+    background: #555;
+    color: #888;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background: #00ccaa;
+}
+
+.metrics {
+    display: flex;
+    justify-content: space-around;
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.video-container {
+    position: relative;
+    width: 640px;
+    height: 480px;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+video {
+    display: none; /* Escondido, usamos apenas o canvas */
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1); /* Efeito espelho */
+}
