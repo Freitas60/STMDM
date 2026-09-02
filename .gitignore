@@ -1,0 +1,22 @@
+# Python / Ambientes
+__pycache__/
+*.pyc
+rppg-env/
+.venv/
+
+# Datasets e Pastas de Sujeitos do UBFC-Phys
+s*/*
+s*/
+*.mp4
+*.csv
+*.png
+*.txt
+
+# Modelos Keras locais pesados (já temos as versões Web convertidas)
+*.keras
+temp_savedmodel_*/
+
+# Resultados e Logs
+resultados_*/
+lstm_features/
+results/
