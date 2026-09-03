@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, field_validator
 
 WINDOW_LEN = 150  # 5 segundos a 30fps
-N_FEATURES = 22   # 5 AUs (1,4,6,12,15) * 4 classes = 20 + eye_openness + hr_bpm
+N_FEATURES = 14  # AU1, AU4, AU6 (4 classes cada) + eye_openness + hr_bpm — AU12/AU15 ficaram de fora (fala em T2/T3)
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "best_model_lstm_stress.keras")
 model = tf.keras.models.load_model(MODEL_PATH)
