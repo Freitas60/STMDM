@@ -5,32 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STMDM - Sistema de Deteção de Stress</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- TensorFlow.js Core -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
-    
+
+    <!-- Fili.js — filtro Butterworth digital, usado pelo módulo de rPPG -->
+    <script src="https://cdn.jsdelivr.net/npm/fili@2.0.3/dist/fili.min.js"></script>
+
     <!-- Script principal como Módulo -->
     <script type="module" src="app.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>Sistema Híbrido de Deteção de Stress (Edge + Cloud)</h1>
-        
+
         <div class="video-container">
             <!-- Elemento de vídeo para a webcam -->
             <video id="webcam" autoplay playsinline width="640" height="480"></video>
             <!-- Canvas auxiliar para processamento de imagem e crops -->
             <canvas id="output_canvas" width="640" height="480" style="display:none;"></canvas>
         </div>
-
         <div class="status-panel">
             <h2>Estado do Sistema</h2>
             <p id="system-status">A carregar modelos e dependências...</p>
             <p id="stress-status" class="stress-badge">Nível de Stress: A aguardar dados...</p>
         </div>
     </div>
-
-    <!-- Script principal da aplicação -->
-    <script src="app.js"></script>
 </body>
 </html>
