@@ -10,7 +10,7 @@ let canvasCtx = canvasElement.getContext('2d');
 
 let featureWindow = [];
 const WINDOW_SIZE = 150;
-const FEATURE_DIM = 22;
+const FEATURE_DIM = 14;
 
 async function initSystem() {
     const statusText = document.getElementById('system-status');
@@ -96,7 +96,7 @@ async function sendToServer(windowData) {
         const response = await fetch('http://localhost:8000/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ window: windowData })
+            body: JSON.stringify({ janela: windowData }),
         });
         const result = await response.json();
         document.getElementById('stress-status').innerText = `Nível de Stress: ${result.stress_level}`;
